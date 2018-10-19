@@ -5,7 +5,7 @@
 一个优美梦幻的动漫风 Typecho 博客主题。基于动漫 “Slow Start” 官网的设计风格编写而成。<a href="../master/README-EN.md">English Document</a>
 
 ## 使用方法
-1. Star 本项目
+1. `Star` 本项目
 1. 从这里 [下载](https://github.com/Dreamer-Paul/Fantasy/archive/master.zip) 主题源码
 1. 上传本主题，重命名为 `Fantasy` 并放置在 `usr/themes/` 目录下
 1. 登录你的 Typecho 后台，选择启用主题即可食用~
