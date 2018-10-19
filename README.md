@@ -1,6 +1,8 @@
-# Fantasy
-一个优美梦幻的动漫风 Typecho 博客主题。基于动漫 “Slow Start” 官网的设计风格编写而成。<a href="../blob/master/README-EN.md">English Document</a>
 ![Typecho Theme Fantasy Render Poster - Web Based Version](https://i.imgur.com/BF8J5tG.jpg "Fantasy")
+
+
+# Fantasy
+一个优美梦幻的动漫风 Typecho 博客主题。基于动漫 “Slow Start” 官网的设计风格编写而成。<a href="../master/README-EN.md">English Document</a>
 
 ## 使用方法
 1. Star 本项目

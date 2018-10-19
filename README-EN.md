@@ -1,6 +1,8 @@
+![Typecho Theme Fantasy Render Poster - Web Based Version](https://i.imgur.com/BF8J5tG.jpg "Fantasy")
+
+
 # Fantasy
 A gorgeous, fantastic anime-style Typecho blog theme. Based on the official website of anime "Slow Start". <a href="README.md">中文文档</a>
-![Typecho Theme Fantasy Render Poster - Web Based Version](https://i.imgur.com/BF8J5tG.jpg "Fantasy")
 
 ## How to Use It
 1. Star this project.
