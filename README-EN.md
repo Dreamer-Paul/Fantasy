@@ -2,10 +2,10 @@
 
 
 # Fantasy
-A gorgeous, fantastic anime-style Typecho blog theme. Based on the official website of anime "Slow Start". <a href="README.md">中文文档</a>
+A Gorgeous, Fantastic Anime-Style Typecho Blog Theme. Based on The Official Website of Anime "Slow Start". <a href="README.md">中文文档</a>
 
 ## How to Use It
-1. Star this project.
+1. `Star` this project.
 1. Download the theme source code from [here](https://github.com/Dreamer-Paul/Fantasy/archive/master.zip).
 1. Upload the theme to your server，rename it to `Fantasy` then put it under the  `usr/themes/` content.
 1. Log in to your Typecho dashboard，select to enable the theme. Then enjoy it!
