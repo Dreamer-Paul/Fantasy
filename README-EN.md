@@ -13,7 +13,7 @@ A Gorgeous, Fantastic Anime-Style Typecho Blog Theme. Based on The Official Webs
 ## Project Story
 Please see my blog post for detail: [Fantasy Anime-Style Theme](https://paugram.com/coding/fantasy-theme.html)
 
-## Opensource Lisence
+## Opensource License
 The project is released and authorise the `MIT` lisence. Base on that, you will still need to keep the original authors' copyright code comments (include but not exclude CSS and JS, etc.). It will be best if you could include the theme's URL at your footer!
 
 It isn't easy to develop this project! If you like it, please support me by `Star` it .
@@ -21,5 +21,6 @@ It isn't easy to develop this project! If you like it, please support me by `Sta
 At the same time welcome to [my blog](https://paugram.com/about.html#donate) and donate me, thank you!
 
 ## Credit
+### Used Opensource Project
  - [Kico Style](https://github.com/Dreamer-Paul/Kico-Style)
  - [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
