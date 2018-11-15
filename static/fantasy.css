@@ -4,7 +4,7 @@
 
 # Fantasy Theme
 # By: Dreamer-Paul
-# Last Update: 2018.10.19
+# Last Update: 2018.11.15
 
 一个优美梦幻的动漫风 Typecho 博客主题。
 
@@ -25,19 +25,14 @@ em{ background: #ffa9be }
 
 h1, h2, h3{ font-weight: normal }
 
+hr{ border-top: 2px #ccc dashed }
+
 blockquote{
-    border: none;
-    position: relative;
+    color: #999;
+    padding: 1em;
     border-radius: 1em;
-    background: #fff4fb;
-}
-blockquote:after{
-    top: .15em;
-    right: .15em;
-    opacity: .5;
-    content: '”';
-    position: absolute;
-    font: 4em/1em fantasy;
+    background: #fafafa;
+    border: 2px #ccc dashed;
 }
 
 /* 1 - 页眉
@@ -300,19 +295,10 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     background: #fff;
     border-radius: 1.5em;
 }
-.board + .board{
-    margin-top: 2em;
-}
+.board + .board{ margin-top: 2em }
 
-.post-head{
-    text-align: center;
-    margin-bottom: 2em;
-}
-.post-head h3{
-    padding: .75em;
-    border-radius: 1em;
-    background: #ffeef2;
-}
+.board.head{ display: inline-block }
+.board.head .fa{ margin-right: .75em }
 
 .post-item, .post-title{
     margin-bottom: 1.5em;

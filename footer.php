@@ -1,4 +1,3 @@
-</main>
 <footer>
     <section class="foot-widget">
         <div class="wrap min">

@@ -7,16 +7,15 @@ $this->need('header.php');
 ?>
 <main>
     <div class="wrap min">
+        <section class="board head">
+            <h3><?php $this->archiveTitle(array(
+                'category'  =>  _t('<i class="fa fa-folder"></i>%s'),
+                'search'    =>  _t('<i class="fa fa-search"></i>搜索结果：%s'),
+                'tag'       =>  _t('<i class="fa fa-tags"></i>%s'),
+                'author'    =>  _t('<i class="fa fa-user"></i>%s 的文章')
+            ), '', ''); ?></h3>
+        </section>
         <section class="board">
-            <div class="post-head">
-                <h3><?php $this->archiveTitle(array(
-            'category'  =>  _t('“%s”'),
-            'search'    =>  _t('“%s”的搜索结果'),
-            'tag'       =>  _t('含标签“%s”的文章'),
-            'author'    =>  _t('“%s”发布的文章')
-        ), '', ''); ?></h3>
-<?php if ($this->is('category')) : ?><p><?php echo $this->getDescription(); ?></p><?php endif; ?>
-            </div>
 <?php if ($this->have()): ?>
 <?php while($this->next()): ?>
             <div class="post-item">

@@ -20,7 +20,7 @@ function themeConfig($form) {
 
         echo "</div>";
     }
-    paul_update("Fantasy", "1.0");
+    paul_update("Fantasy", "1.1");
 
     // 自定义站点图标
     $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('站点图标'), _t('在这里填入一张 png 图片地址（<a>192x192px</a>），不填则使用默认图标'));

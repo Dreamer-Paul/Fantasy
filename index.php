@@ -5,7 +5,7 @@
  *
  * @package Fantasy Theme
  * @author Dreamer-Paul
- * @version 1.0
+ * @version 1.1
  * @link https://paugram.com
  */
 

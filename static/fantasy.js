@@ -2,7 +2,7 @@
 
 # Fantasy Theme
 # By: Dreamer-Paul
-# Last Update: 2018.10.19
+# Last Update: 2018.11.15
 
 一个优美梦幻的动漫风 Typecho 博客主题。
 
@@ -32,7 +32,6 @@ var fantasy = new function () {
     };
 
     element.search.btn.onclick = function () {
-        console.log(element.search.input);
         element.search.input.focus();
         element.search.window.classList.toggle("active");
     };
