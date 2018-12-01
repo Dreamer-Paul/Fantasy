@@ -17,7 +17,7 @@
     <link href="<?php $this->options->themeUrl('static/fantasy.css'); ?>" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
-    <?php $this->header('pingback=&xmlrpc=&wlw='); ?>
+    <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw='); ?>
 <?php if ($this->options->custom_css): ?>
     <style><?php $this->options->custom_css() ?></style>
 <?php endif; ?>
@@ -27,6 +27,9 @@
     <nav class="side-nav">
         <a href="<?php $this->options->siteUrl() ?>">首页</a>
         <?php $this->widget('Widget_Contents_Page_List')->parse('<a href="{permalink}">{title}</a>'); ?>
+<?php if($this -> user -> hasLogin()): ?>
+		<a href="<?php $this -> options -> adminUrl() ?>" target="_blank">进入后台</a>
+<?php endif; ?>
     </nav>
     <nav class="side-action">
         <div class="search-btn"></div>

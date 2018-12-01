@@ -4,7 +4,7 @@
 
 # Fantasy Theme
 # By: Dreamer-Paul
-# Last Update: 2018.11.15
+# Last Update: 2018.12.1
 
 一个优美梦幻的动漫风 Typecho 博客主题。
 
@@ -341,7 +341,7 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     font-size: .85em;
 }
 
-.post-meta .category:before, .post-meta .comments:before, .post-meta .edit:before{
+.post-meta .category:before, .post-meta .comments:before, .post-meta .viewed:before, .post-meta .edit:before{
     content: '·';
     margin: 0 .5em;
 }
@@ -488,11 +488,13 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
 .comment-list .comment-item:last-child{ margin-bottom: 0 }
 
 .comment-list .comment-meta{ margin-bottom: .5em }
+
 .comment-meta .comment-time{
     color: #aaa;
     font-size: .75em;
     margin-left: .5em;
 }
+.comment-list .comment-author, .comment-list a{ font-weight: lighter }
 
 .comment-list .content{
     background: #fff4fb;
@@ -500,12 +502,13 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     margin: 0 0 1em 1.5em;
     padding: .75em .75em .75em 2.5em;
 }
-.comment-list a{ font-weight: lighter }
+
+/* - 作者的评论 */
+.comment-item.by-author > .content{ background: aliceblue }
+.comment-item.by-author > .content a{ color: cornflowerblue }
 
 /* - 子评论 */
 .comment-list .comment-children{ margin-left: 1em }
-.comment-list .comment-children a{ color: cornflowerblue }
-.comment-list .comment-children .content{ background: aliceblue }
 
 /* - 回复评论 */
 .comment-list .comment-reply{
@@ -526,12 +529,13 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
 -------------------------------- */
 footer{
     color: #666;
+    padding: 2em 0;
     background: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, .1);
 }
 
-.foot-widget{ padding: 3em 0 }
-.foot-widget ul{ margin: 0 }
+.foot-widget{ margin-bottom: 3em }
+
 .foot-widget li{
     overflow: hidden;
     white-space: nowrap;
@@ -544,9 +548,27 @@ footer{
     font-family: "FontAwesome";
 }
 
+.foot-widget .foot-comments a{
+    color: inherit;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: .5em;
+    text-overflow: ellipsis;
+}
+.foot-widget .foot-comments img{
+    margin-right: .5em;
+    border-radius: 66%;
+}
+
 .foot-copyright{
     color: #999;
-    padding: 1.5em 0;
     font-size: .875em;
-    text-align: center;
 }
+.foot-copyright p{ margin: .25em 0 }
+
+.foot-social a{
+    color: #777790;
+    margin-right: .75em;
+}
+.foot-social a:last-child{ margin: 0 }

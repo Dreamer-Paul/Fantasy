@@ -20,23 +20,42 @@ function themeConfig($form) {
 
         echo "</div>";
     }
-    paul_update("Fantasy", "1.1");
+    paul_update("Fantasy", "1.2");
 
     // 自定义站点图标
     $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('站点图标'), _t('在这里填入一张 png 图片地址（<a>192x192px</a>），不填则使用默认图标'));
-    $form->addInput($favicon);
+    $form -> addInput($favicon);
 
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接，不填则不输出。（格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>）'));
-    $form->addInput($home_social);
+    $form -> addInput($home_social);
 
     // 自定义样式表
-    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表，不填则不输出。'));
-    $form->addInput($custom_css);
+    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表，不填则不输出'));
+    $form -> addInput($custom_css);
 
     // 自定义统计代码
-    $custom_script = new Typecho_Widget_Helper_Form_Element_Textarea('custom_script', NULL, NULL, _t('统计代码'), _t('在这里填入你的统计代码，不填则不输出。需要 <a>&lt;script&gt;</a> 标签。'));
+    $custom_script = new Typecho_Widget_Helper_Form_Element_Textarea('custom_script', NULL, NULL, _t('统计代码'), _t('在这里填入你的统计代码，不填则不输出。需要 <a>&lt;script&gt;</a> 标签'));
     $form->addInput($custom_script);
+
+    // 建站时间
+    $site_created = new Typecho_Widget_Helper_Form_Element_Text('site_created', NULL, '2018/07/09', _t('建站日期'), _t('在这里填入一个建站日期（格式：<a>2018/07/09</a>），不填则无法正常输出运行时间'));
+    $form -> addInput($site_created);
+
+    // 备案号
+    $verify_num = new Typecho_Widget_Helper_Form_Element_Text('verify_num', NULL, '', _t('备案号'), _t('在这里填入一个备案号，不填则无法输出'));
+    $form -> addInput($verify_num);
+
+    // 页尾展示内容
+    $footer_content = new Typecho_Widget_Helper_Form_Element_Checkbox('footer_content',
+        array(
+            'verify' => _t('备案号'),
+            'link' => _t('社交链接'),
+            'time' => _t('运行时间'),
+            'hitokoto' => _t('随机一言')
+        ),
+        array('time', 'hitokoto'), _t('页尾展示内容'));
+    $form -> addInput($footer_content -> multiMode());
 }
 
 function themeInit($archive){

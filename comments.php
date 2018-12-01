@@ -2,17 +2,15 @@
 <?php function threadedComments($comments, $options) {
     $commentClass = '';
     if ($comments->authorId) {
-        if ($comments->authorId == $comments->ownerId) {
-            $commentClass .= ' comment-by-author';
-        } else {
-            $commentClass .= ' comment-by-user';
+        if($comments->authorId == $comments->ownerId){
+            $commentClass .= ' by-author';
         }
     }
 
     $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
 ?>
 
-    <div class="comment-item" id="<?php $comments->theId(); ?>">
+    <div class="comment-item<?php echo $commentClass ?>" id="<?php $comments->theId(); ?>">
         <?php $comments->gravatar('150', 'wavatar'); ?>
         <div class="content">
             <div class="comment-meta">

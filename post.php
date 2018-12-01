@@ -13,7 +13,7 @@ $this->need('header.php');
                 <div class="post-meta">
                     <time class="date"><?php $this->date(); ?></time>
                     <span class="category"><?php $this->category('，'); ?></span>
-                    <span class="comments"><?php $this->commentsNum('%d 条评论'); ?></span>
+                    <span class="comments"><?php $this->commentsNum('%d 评论'); ?></span>
 <?php if($this->authorId == $this->user->uid): ?>
                     <span class="edit"><a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid;?>" target="_blank">编辑</a></span>
 <?php endif; ?>

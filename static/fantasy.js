@@ -2,7 +2,7 @@
 
 # Fantasy Theme
 # By: Dreamer-Paul
-# Last Update: 2018.11.15
+# Last Update: 2018.12.1
 
 一个优美梦幻的动漫风 Typecho 博客主题。
 
@@ -10,7 +10,8 @@
 
 ---- */
 
-var fantasy = new function () {
+var Fantasy_Theme = function (config) {
+    var that = this;
     var element = {
         toggle: ks.select("header .toggle"),
         search: {
@@ -24,17 +25,23 @@ var fantasy = new function () {
             list: ks.select(".comment-list"),
             mail: document.getElementsByName("mail")[0],
             avatar: ks.select(".comment-avatar img")
-        }
+        },
+        date: ks.select(".foot-date"),
+        hitokoto: ks.select(".foot-hitokoto")
     };
 
-    element.toggle.onclick = function () {
-        ks.select("aside").classList.toggle("active");
-    };
+    // 菜单按钮
+    this.header = function () {
+        element.toggle.onclick = function () {
+            ks.select("aside").classList.toggle("active");
+        };
 
-    element.search.btn.onclick = function () {
-        element.search.input.focus();
-        element.search.window.classList.toggle("active");
+        element.search.btn.onclick = function () {
+            element.search.input.focus();
+            element.search.window.classList.toggle("active");
+        };
     };
+    this.header();
 
     // 自动添加外链
     this.links = function (selector) {
@@ -66,6 +73,52 @@ var fantasy = new function () {
     // 评论
     if(element.comment.form && element.comment.mail){
         this.comments();
+    }
+
+    this.foot_date = function (date) {
+        function run_date(date){
+            var created = Date.parse(date);
+            var now = new Date().getTime();
+            var ran = now - created;
+
+            var day = ran / 86400000;
+            var day_c = Math.floor(day);
+
+            var hour = 24 * (day - day_c);
+            var hour_c = Math.floor(hour);
+
+            var min = 60 * (hour - hour_c);
+            var min_c = Math.floor(min);
+
+            var sec = Math.floor(60 * (min - min_c));
+
+            return "站点已萌萌哒存活了 <a>" + day_c + "</a> 天 <a>" + hour_c + "</a> 小时 <a>" + min_c + "</a> 分 <a>" + sec + "</a> 秒";
+        }
+
+        setInterval(function () {
+            element.date.innerHTML = run_date(date);
+        }, 1000);
+    };
+
+    if(element.date && config.created){
+        this.foot_date(config.created);
+    }
+    
+    this.hitokoto = function () {
+        ks.ajax({
+            method: "GET",
+            url: "https://v1.hitokoto.cn",
+            success: function (req){
+                element.hitokoto.innerText = JSON.parse(req.response)["hitokoto"];
+            },
+            failed: function (req){
+                ks.notice("请求一言失败！", {color: "red"});
+            }
+        });
+    };
+
+    if(element.hitokoto){
+        this.hitokoto();
     }
 };
 
