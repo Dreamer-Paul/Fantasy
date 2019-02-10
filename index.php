@@ -5,7 +5,7 @@
  *
  * @package Fantasy Theme
  * @author Dreamer-Paul
- * @version 1.2
+ * @version 1.3
  * @link https://paugram.com
  */
 
@@ -24,7 +24,7 @@ $this->need('header.php');
             </div>
 <?php endwhile; ?>
         </section>
-        <?php $this->pageNav('', ''); ?>
+        <?php $this->pageNav('', '', 3, '...', array('wrapTag' => 'section', 'itemTag' => 'span')); ?>
     </div>
 </main>
 

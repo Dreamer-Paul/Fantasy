@@ -4,7 +4,7 @@
 
 # Fantasy Theme
 # By: Dreamer-Paul
-# Last Update: 2018.12.1
+# Last Update: 2018.2.10
 
 一个优美梦幻的动漫风 Typecho 博客主题。
 
@@ -38,12 +38,11 @@ blockquote{
 /* 1 - 页眉
 -------------------------------- */
 header .toggle{
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
     z-index: 2;
     width: 3em;
     height: 3em;
-    margin: 1em;
     display: none;
     cursor: pointer;
     position: fixed;
@@ -65,6 +64,7 @@ aside{
     top: 8em;
     z-index: 2;
     position: fixed;
+    user-select: none;
 }
 aside::-webkit-scrollbar{ width: 0 }
 
@@ -154,8 +154,8 @@ aside::-webkit-scrollbar{ width: 0 }
 }
 
 .search-form input{
-    border: none;
     width: 100%;
+    border: none;
     display: block;
     font-size: 1.5em;
     border-radius: 0;
@@ -203,8 +203,8 @@ aside::-webkit-scrollbar{ width: 0 }
         bottom: 0;
         overflow: auto;
         border-radius: 0;
-        transform: translateX(100%);
         transition: transform .3s;
+        transform: translateX(-100%);
         background: rgba(255, 255, 255, .95);
     }
     aside.active{ transform: translateX(0) }
@@ -232,9 +232,9 @@ aside::-webkit-scrollbar{ width: 0 }
     .search-form input{ font-size: 1em }
 }
 
-header{
-    margin: 3em 0;
-}
+/* 3 - 正文
+-------------------------------- */
+header{ margin: 3em 0 }
 
 .headline{
     position: relative;
@@ -280,12 +280,11 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
 .head-social i{ font-size: 1.2em }
 
 @media screen and (max-width: 600px){
+    header{ text-align: center }
+
     .head-social{
         float: none;
         margin-top: 2em;
-    }
-    header{
-        text-align: center;
     }
 }
 
@@ -346,8 +345,10 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     margin: 0 .5em;
 }
 
-.post-content > h1, .post-content > h2, .post-content > h3{ position: relative }
-.post-content > h1:before, .post-content > h2:before, .post-content > h3:before{
+.post-content > h1, .post-content > h2, .post-content > h3,
+.post-special > h1, .post-special > h2, .post-special > h3{ position: relative }
+.post-content > h1:before, .post-content > h2:before, .post-content > h3:before,
+.post-special > h1:before, .post-special > h2:before, .post-special > h3:before{
     left: -1.5rem;
     top: 0;
     bottom: 0;
@@ -370,26 +371,27 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
 
 /* - 分页 */
 .page-navigator{
-    display: table;
     margin: 2em auto;
     user-select: none;
     text-align: center;
 }
-.page-navigator li{
+.page-navigator span{
+    margin-right: .5em;
     display: inline-block;
 }
+.page-navigator span:last-child{ margin-right: 0 }
+
 .page-navigator a{
     width: 2em;
     height: 2em;
     color: inherit;
-    margin: 0 .5em;
     line-height: 1.75;
     border-radius: 2em;
     display: inline-block;
     vertical-align: middle;
     border: #777790 2px solid;
-    transition: color .3s, background .3s;
     background: no-repeat center center;
+    transition: color .3s, background .3s;
 }
 .page-navigator a:hover, .page-navigator .current a{
     color: #fff;
@@ -426,9 +428,9 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     margin-bottom: 2em;
 }
 .comment-form input{
-    width: 29%;
     margin-right: .5em;
     display: inline-block;
+    width: calc((100% - 5.5em) / 3);
 }
 .comment-form input, .comment-form textarea{
     padding: .75em;
@@ -500,6 +502,7 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     background: #fff4fb;
     border-radius: .5em;
     margin: 0 0 1em 1.5em;
+    word-break: break-all;
     padding: .75em .75em .75em 2.5em;
 }
 
@@ -525,13 +528,86 @@ header, main{ margin-left: 8em; margin-bottom: 3em }
     background: #fafafa;
 }
 
+/* - 归档 */
+.archives-list a{ color: inherit }
+
+.archives-list li{
+    margin-bottom: .75em;
+    list-style-type: circle;
+}
+
+.archives-list .date{ float: right }
+
+/* - 追番 */
+.bangumi-item{
+    color: inherit;
+    text-align: center;
+}
+.bangumi-img{
+    overflow: hidden;
+    position: relative;
+    border-radius: 1em;
+    padding-bottom: 140%;
+    background: center/cover;
+}
+.bangumi-item h3{ margin: 1em 0 }
+
+.bangumi-status{
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    position: absolute;
+    transition: transform .3s;
+    transform: translateY(100%);
+    background: rgba(0, 0, 0, .5);
+}
+.bangumi-img:hover .bangumi-status{ transform: translateY(0) }
+
+.bangumi-status-bar{
+    top: 0;
+    bottom: 0;
+    max-width: 100%;
+    position: absolute;
+    background: #ffa9be;
+}
+.bangumi-status p{
+    padding: .5em;
+    position: relative;
+}
+
 /* 4 - 页尾
 -------------------------------- */
 footer{
-    color: #666;
     padding: 2em 0;
     background: #fff;
     box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+}
+footer h3{ color: #666 }
+
+.foot-action{
+    z-index: 66;
+    right: 1rem;
+    bottom: 1rem;
+    position: fixed;
+    font-size: 1.2em;
+    line-height: 2em;
+    text-align: center;
+}
+.foot-action .to-top{
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 66%;
+    transform: scale(0);
+    transition: transform .3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+}
+.foot-action .to-top.active{ transform: scale(1) }
+.foot-action .to-top:before{
+    content: "\f062";
+    font-family: FontAwesome;
 }
 
 .foot-widget{ margin-bottom: 3em }

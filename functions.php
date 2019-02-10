@@ -1,6 +1,8 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
+require_once("fantasy.php");
+
 function themeConfig($form) {
 
     // 插件信息与更新检测
@@ -20,11 +22,15 @@ function themeConfig($form) {
 
         echo "</div>";
     }
-    paul_update("Fantasy", "1.2");
+    paul_update("Fantasy", "1.3");
 
     // 自定义站点图标
     $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('站点图标'), _t('在这里填入一张 png 图片地址（<a>192x192px</a>），不填则使用默认图标'));
     $form -> addInput($favicon);
+
+    // 自定义背景图
+    $background = new Typecho_Widget_Helper_Form_Element_Text('background', NULL, NULL, _t('站点背景'), _t('在这里填入一张图片地址，不填则显示默认背景'));
+    $form->addInput($background);
 
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接，不填则不输出。（格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>）'));
@@ -45,6 +51,10 @@ function themeConfig($form) {
     // 备案号
     $verify_num = new Typecho_Widget_Helper_Form_Element_Text('verify_num', NULL, '', _t('备案号'), _t('在这里填入一个备案号，不填则无法输出'));
     $form -> addInput($verify_num);
+
+    // 追番用户 ID
+    $bgm_user = new Typecho_Widget_Helper_Form_Element_Text('bgm_user', NULL, '', _t('追番用户 ID'), _t('在这里填入一个 <a>bangumi.tv</a> 的用户 ID，用于追番页面的输出，不填则输出作者的追番记录'));
+    $form -> addInput($bgm_user);
 
     // 页尾展示内容
     $footer_content = new Typecho_Widget_Helper_Form_Element_Checkbox('footer_content',

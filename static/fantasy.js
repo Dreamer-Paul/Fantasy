@@ -26,6 +26,7 @@ var Fantasy_Theme = function (config) {
             mail: document.getElementsByName("mail")[0],
             avatar: ks.select(".comment-avatar img")
         },
+        top: ks.select(".to-top"),
         date: ks.select(".foot-date"),
         hitokoto: ks.select(".foot-hitokoto")
     };
@@ -75,6 +76,18 @@ var Fantasy_Theme = function (config) {
         this.comments();
     }
 
+    // 返回头部
+    this.to_top = function () {
+        element.top.onclick = ks.scrollTop;
+
+        window.onscroll = function () {
+            var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            scroll >= window.innerHeight ? element.top.classList.add("active") : element.top.classList.remove("active");
+        }
+    };
+    this.to_top();
+
+    // 运行时间
     this.foot_date = function (date) {
         function run_date(date){
             var created = Date.parse(date);
@@ -103,7 +116,8 @@ var Fantasy_Theme = function (config) {
     if(element.date && config.created){
         this.foot_date(config.created);
     }
-    
+
+    // 一言
     this.hitokoto = function () {
         ks.ajax({
             method: "GET",
@@ -123,7 +137,7 @@ var Fantasy_Theme = function (config) {
 };
 
 // 图片缩放
-ks.image(".post-content img");
+ks.image(".post-content:not(.exclude-image) img");
 
 // 请保留版权说明
 if (window.console && window.console.log) {

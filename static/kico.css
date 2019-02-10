@@ -2,9 +2,9 @@
 
 /* ----
 
-# Kico Style 2.0.2
+# Kico Style 2.1
 # By: Dreamer-Paul
-# Last Update: 2018.9.25
+# Last Update: 2019.1.28
 
 一个简洁、有趣的开源响应式框架，仅包含基础样式，需按照一定规则进行二次开发。
 
@@ -24,17 +24,21 @@ fieldset, legend, figure{
     padding: 0;
 }
 
-body{
+html{
     color: #353535;
     font: 16px/1.5 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
 }
 
+html.font-s{ font-size: 14px }
+html.font-m{ font-size: 16px }
+html.font-l{ font-size: 18px }
+
 @media screen and (max-width: 500px){
-    body.resizable{ font-size: 14px }
+    html.font-auto{ font-size: 14px }
 }
 
 @media screen and (min-width: 1930px){
-    body.resizable{ font-size: 18px }
+    html.font-auto{ font-size: 18px }
 }
 
 *, *:before, *:after{ box-sizing: border-box }
@@ -187,21 +191,15 @@ article h4, article h5, article h6{ font-size: 1.1em }
     font: inherit;
     color: inherit;
     cursor: pointer;
-    background: #eee;
+    background: #fff;
     user-select: none;
     border-radius: 4px;
     padding: .8em 1.5em;
     display: inline-block;
     border: 1px solid transparent;
 }
-
-.btn:hover{
-    color: inherit;
-}
-
-.btn:active{
-    background: #ddd;
-}
+.btn:hover{ color: inherit }
+.btn:active{ background: #eee }
 
 /* -- 禁用的按钮 */
 .btn[disabled]{
@@ -225,13 +223,13 @@ article h4, article h5, article h6{ font-size: 1.1em }
 }
 
 /* -- 按钮颜色 */
-.btn.red, .btn.yellow, .btn.blue, .btn.green,
-.btn.red:hover, .btn.yellow:hover, .btn.blue:hover, .btn.green:hover{ color: #fff; }
+.btn.red, .btn.yellow, .btn.blue, .btn.green{ color: #fff }
 
 .btn.red{ background: #c40b00 }
 .btn.yellow{ background: #ffb03a }
 .btn.blue{ background: #3498db }
 .btn.green{ background: #27a17e }
+.btn.transparent{ background: transparent }
 
 .btn.red:active{ background: #b00000 }
 .btn.yellow:active{ background: #eb9c26 }
@@ -339,6 +337,81 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 
 input[type="number"]:out-of-range{
     background: rgba(255, 0, 0, .3);
+}
+
+input[type="range"]{
+    margin: 0;
+    height: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: ew-resize;
+    cursor: grab;
+    overflow: hidden;
+    min-height: 1.5rem;
+}
+
+input[type="range"]:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    border-color: #3498db;
+    background-color: #3498db;
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    border-color: #3498db;
+    background-color: #3498db;
+}
+
+input[type="range"]:focus::-ms-thumb {
+    border-color: #9C27B0;
+    background-color: #673AB7;
+}
+
+input[type="range"]::-moz-focus-outer { border: 0 }
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #3498db;
+    content: '';
+    height: 2px;
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #fff;
+    border-radius: 50px;
+    margin-top: -6px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    transition: .3s border-color, .3s background-color;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 240px;
+    height: 2px;
+    background: rgba(0, 50, 126, 0.12);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 30, 75, 0.12);
+    position: relative;
+    transition: .3s border-color, .3s background-color;
+}
+
+input[type="range"]::-moz-range-progress {
+    height: 2px;
+    background: #467fcf;
+    border: 0;
+    margin-top: 0;
 }
 
 textarea{
@@ -665,6 +738,24 @@ iframe{
 @media screen and (min-width: 1024px){
     .row [class*="col-l-"]{
         margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .row [class*="wrap-s"]{
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .row [class*="wrap-m"]{
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .row [class*="wrap-l"]{
+        margin-bottom: 1em;
     }
 }
 
@@ -1154,6 +1245,29 @@ iframe{
 @keyframes rotate{ from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
 @-webkit-keyframes rotate{ from{ transform: rotate(0deg) } to{ transform: rotate(360deg) } }
 
+/* - 弹跳*/
+@keyframes jump{
+    0% {
+        transform: translateY(0) scale(1.15,.8)
+    }
+
+    20% {
+        transform: translateY(-35px) scaleY(1.1)
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1)
+    }
+
+    80% {
+        transform: translateY(-35px) scale(1)
+    }
+
+    to {
+        transform: translateY(0) scale(1.15,.8)
+    }
+}
+
 /* 5 - 组件
 -------------------------------- */
 
@@ -1268,6 +1382,40 @@ iframe{
     background: rgba(0, 0, 0, .5);
 }
 
+.ks-image .ks-prev{
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    cursor: url(left.png), pointer;
+}
+.ks-image .ks-next{
+    right: 0;
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    cursor: url(right.png), pointer;
+}
+
+.ks-image .ks-ball{
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    opacity: 0;
+    border-radius: 66%;
+    position: absolute;
+    pointer-events: none;
+    transition: opacity .3s;
+    border: .5em #fff solid;
+    border-left-color: #3498db;
+    animation: rotate .5s linear infinite paused;
+    -webkit-animation: rotate .5s linear infinite paused;
+}
+.ks-image .ks-ball.loading{
+    opacity: 1;
+    animation-play-state: running;
+}
+
 .ks-image img{
     top: 0;
     left: 0;
@@ -1298,6 +1446,6 @@ iframe{
 
 /* ----
 
-:) Copyright (C) 2018 Binkic Team. Made With ♥ By Paul.
+:) Copyright (C) By Dreamer-Paul.
 
 ---- */

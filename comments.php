@@ -11,7 +11,7 @@
 ?>
 
     <div class="comment-item<?php echo $commentClass ?>" id="<?php $comments->theId(); ?>">
-        <?php $comments->gravatar('150', 'wavatar'); ?>
+        <?php $comments -> gravatar('150', 'wavatar'); ?>
         <div class="content">
             <div class="comment-meta">
                 <span class="comment-author"><?php $comments->author(); ?></span>
@@ -57,7 +57,7 @@
             </div>
 <?php if ($comments->have()): ?>
         <?php $comments->listComments(array('before' => '<div class="comment-list">', 'after' => '</div>')); ?>
-        <?php $comments->pageNav('', ''); ?>
+        <?php $comments->pageNav('', '', 3, '...', array('wrapTag' => 'section', 'itemTag' => 'span')); ?>
 <?php else: ?>
     <p class="no-comment">还没有评论呢！</p>
 <?php endif; ?>

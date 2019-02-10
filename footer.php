@@ -1,5 +1,8 @@
 <footer>
     <div class="wrap mid">
+        <section class="foot-action">
+            <div class="to-top"></div>
+        </section>
         <section class="foot-widget">
             <div class="row">
                 <div class="col-m-3">
@@ -19,7 +22,7 @@
                     <div class="foot-comments">
 <?php $this -> widget('Widget_Comments_Recent', 'pageSize=5') -> to($comments); ?>
                         <?php while($comments -> next()): ?>
-                            <a href="<?php $comments -> permalink(); ?>" rel="nofollow" target="_blank"><img src="<?php echo Typecho_Common::gravatarUrl($comments -> mail, 32, 'X', 'wavatar') ?>"/><?php $comments -> excerpt(10, '...'); ?></a>
+                            <a href="<?php $comments -> permalink(); ?>" rel="nofollow" target="_blank"><img src="<?php echo Typecho_Common::gravatarUrl($comments -> mail, 32, 'X', 'wavatar', $this -> request -> isSecure()) ?>"/><?php $comments -> author(false); ?>：<?php $comments -> excerpt(10, '...'); ?></a>
                         <?php endwhile; ?>
                     </div>
                 </div>
@@ -31,6 +34,8 @@
                         <li>分类：<?php $stat->categoriesNum() ?> 个</li>
                         <li>评论：<?php $stat->publishedCommentsNum() ?> 条</li>
                         <li>页面：<?php $stat->publishedPagesNum() ?> 个</li>
+                        <li>上次更新：<?php echo Fantasy::tran_time($this -> modified) ?></li>
+                        <li>上次登录：<?php echo Fantasy::get_last_login() ?></li>
                     </ul>
                 </div>
             </div>
