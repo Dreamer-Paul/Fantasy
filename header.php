@@ -15,7 +15,7 @@
 <?php endif; ?>
     <link href="<?php $this -> options -> themeUrl('static/kico.css'); ?>" rel="stylesheet" type="text/css"/>
     <link href="<?php $this -> options -> themeUrl('static/fantasy.css'); ?>" rel="stylesheet" type="text/css"/>
-    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw='); ?>
 <?php if($this -> options -> background): ?>
